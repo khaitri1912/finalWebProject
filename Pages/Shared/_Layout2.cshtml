@@ -1,0 +1,126 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - WebBanHang</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/WebBanHang.styles.css" asp-append-version="true" />
+    <link rel="stylesheet" type="text/css" href="./js/slick-1.8.1/slick/slick.css" />
+    <link rel="stylesheet" type="text/css" href="./js/slick-1.8.1/slick/slick-theme.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<style>
+    button{
+        background-color: yellow;
+        font-weight: bold;
+        color: black;
+    }
+
+    header {
+        background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQbWIyXoi7yEGgsvE0RHOp2aW81PUiBxWJczQ&usqp=CAU);
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+    }
+
+    #myBtn {
+        display: none;
+        position: fixed;
+        bottom: 10px;
+        right: 43px;
+        z-index: 99;
+        font-size: 18px;
+        border: none;
+        outline: none;
+        background-color: red;
+        color: white;
+        cursor: pointer;
+        padding: 15px;
+        border-radius: 4px;
+    }
+
+        #myBtn:hover {
+            background-color: #555;
+        }
+    /*);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    }*/
+
+</style>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light  border-bottom box-shadow mb-3">
+            <div class="container">
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+                    <ul class="navbar-nav flex-grow-1">
+                        <li class="nav-item">
+                            <button data-text="HOME">
+                                <a class="nav-link text-dark" asp-area="" asp-page="/Index2">HOME</a>
+                            </button>
+                        </li>
+                        <li class="nav-item">
+                            <button data-text="PRODUCT">
+                                <a class="nav-link text-dark" asp-area="" asp-page="/Products/Index">PRODUCT</a>
+                            </button>
+                        </li>
+                        <li class="nav-item">
+                            <button data-text="CART">
+                                <a class="nav-link text-dark" asp-area="" asp-page="/CartHandling/Index">Cart Handling</a>
+                            </button>
+                        </li>
+                        <li class="nav-item">
+                            <button data-text="CART">
+                                <a class="nav-link text-dark" asp-area="" asp-page="/Customer/Index">Customer Management</a>
+                            </button>
+                        </li>
+                    </ul>
+                    
+                    <partial name="_LoginPartial" />
+                </div>
+            </div>
+        </nav>
+    </header>
+    <div class="container">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+
+    <footer class="border-top footer text-muted">
+        <div class="container">
+            &copy; 2023 - BIBABIBOInternational - <a asp-area="" asp-page="/Privacy">Privacy</a>
+        </div>
+        <i onclick="topFunction()" id="myBtn" class="fas fa-arrow-circle-up"></i>
+    </footer>
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+
+    @await RenderSectionAsync("Scripts", required: false)
+    <script>
+        function scrollFunction() {
+            if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+                document.getElementById("myBtn").style.display = "block";
+            } else {
+                document.getElementById("myBtn").style.display = "none";
+            }
+        }
+
+        // When the user clicks on the button, scroll to the top of the document
+        function topFunction() {
+            document.body.scrollTop = 0;
+            document.documentElement.scrollTop = 0;
+        }
+    </script>
+</body>
+</html>

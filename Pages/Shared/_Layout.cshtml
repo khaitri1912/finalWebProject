@@ -1,0 +1,175 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - WebBanHang</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/WebBanHang.styles.css" asp-append-version="true" />
+    <link rel="stylesheet" type="text/css" href="./js/slick-1.8.1/slick/slick.css" />
+    <link rel="stylesheet" type="text/css" href="./js/slick-1.8.1/slick/slick-theme.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<style>
+    button {
+        padding: 12.5px 30px;
+        border: 0;
+        border-radius: 100px;
+        background-color: #2ba8fb;
+        color: #ffffff;
+        font-weight: Bold;
+        transition: all 0.5s;
+        -webkit-transition: all 0.5s;
+    }
+
+        button:hover {
+            background-color: #6fc5ff;
+            box-shadow: 0 0 20px #6fc5ff50;
+            transform: scale(1.1);
+        }
+
+        button:active {
+            background-color: #3d94cf;
+            transition: all 0.25s;
+            -webkit-transition: all 0.25s;
+            box-shadow: none;
+            transform: scale(0.98);
+        }
+
+    .slick-prev:before {
+        color: red;
+    }
+
+    .slick-next:before {
+        color: blue;
+    }
+
+    header {
+        background-image: url(https://img.freepik.com/premium-vector/modern-wave-blue-abstract-banner-design-background-blue-banner-background-geometric-blue-light-stripes-texture-background_181182-28866.jpg) !important;
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+    }
+
+    body {
+        /*background-image: url(https://i0.wp.com/thatnhucuocsong.com.vn/wp-content/uploads/2022/01/background-xanh-duong-vector.png?ssl=1);*/
+        background-image: url(https://vapa.vn/wp-content/uploads/2022/12/background-mau-xanh-1.jpeg);
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+    }
+
+    .text-orange {
+        color: rgb(255, 99, 71) !important;
+        font-weight: bolder;
+    }
+
+    #myBtn {
+        display: none;
+        position: fixed;
+        bottom: 10px;
+        right: 43px;
+        z-index: 99;
+        font-size: 18px;
+        border: none;
+        outline: none;
+        background-color: red;
+        color: white;
+        cursor: pointer;
+        padding: 15px;
+        border-radius: 4px;
+    }
+
+        #myBtn:hover {
+            background-color: #555;
+        }
+
+    Viết cho Lập trình Web
+</style>
+
+
+<body onscroll="scrollFunction()">
+    <header>
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light border-bottom box-shadow mb-3">
+            <div class="container">
+                <a class="navbar-brand text-orange" asp-area="" asp-page="/Index">LAZAPEE</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+                    <ul class="navbar-nav flex-grow-1">
+                        <li class="nav-item">
+                            <button>
+                                <a class="nav-link text-dark" asp-area="" asp-page="/Index">Home</a>
+                            </button>
+                        </li>
+                      
+                        <li class="nav-item">
+                            <button>
+                                <a class="nav-link text-dark" asp-area="" asp-page="/SHOP/SHOP/Index">Product</a>
+                            </button>
+                        </li>
+                        <li class="nav-item">
+                            <button>
+                                <a class="nav-link text-dark" asp-area="" asp-page="/Contact/Index">CONTACT</a>
+                            </button>
+                        </li>
+                    </ul>
+                    <partial name="_LoginPartial" />
+                </div>
+            </div>
+        </nav>
+    </header>
+    <div class="container">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+        @*<i onclick="topFunction()" id="myBtn" class="fas fa-arrow-circle-up"></i>*@
+    </div>
+
+    <footer class="border-top footer text-muted">
+        <div class="container">
+            &copy; 2023 - LAZAPEE - <a asp-area="" asp-page="/Privacy">Privacy</a>
+            <i onclick="topFunction()" id="myBtn" class="fas fa-arrow-circle-up"></i>
+        </div>
+        
+    </footer>
+    
+
+    
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    <script src="./js/slick-1.8.1/slick/slick.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('#your-class').slick({
+                infinite: true,
+                slidesToShow: 2,
+                slidesToScroll: 1,
+                button: true,
+                arrows: true,
+                dots: false,
+
+            });
+        });
+        function scrollFunction() {
+            if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+                document.getElementById("myBtn").style.display = "block";
+            } else {
+                document.getElementById("myBtn").style.display = "none";
+            }
+        }
+
+        // When the user clicks on the button, scroll to the top of the document
+        function topFunction() {
+            document.body.scrollTop = 0;
+            document.documentElement.scrollTop = 0;
+        }
+    </script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

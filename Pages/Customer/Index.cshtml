@@ -1,0 +1,30 @@
+﻿@page
+@model WebBanHang.Pages.Customer.IndexModel
+@{
+    ViewData["Title"] = "Customer List";
+    Layout = "_Layout2";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th>EmailConfirmed</th>
+            <th>PasswordHash</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var customer in Model.Customers)
+        {
+            <tr>
+                <td>@customer.UserName</td>
+                <td>@customer.Email</td>
+                <td>@customer.EmailConfirmed</td>
+                <td>@customer.PasswordHash</td>
+            </tr>
+        }
+    </tbody>
+</table>

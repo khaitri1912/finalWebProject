@@ -1,0 +1,174 @@
+﻿@page
+@model WebBanHang.Pages.Index3Model
+@{
+    Layout = "_Layout3";
+}
+
+
+<style>
+    body {
+        font-weight: bolder;
+    }
+    .item-Layout {
+        /*display: flex;
+        flex-wrap: wrap*/
+        display: grid;
+        max-width: 1300px;
+        grid-template-columns: 650px 650px;
+        grid-column-gap: 10px;
+        grid-row-gap: 45px;
+        text-align: center;
+    }
+
+    .item-Div {
+        /*flex-basis: 20%*/
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    img {
+        width: 100%;
+        height: 100%;
+    }
+
+    .best_Seller {
+        text-align: center;
+        margin-bottom: 30px;
+    }
+
+    .Main_bodyPage {
+        margin-top: 45px;
+    }
+
+    .item-LayoutText {
+        /*display: flex;
+            flex-wrap: wrap;
+            margin-bottom: 50px*/
+        display: grid;
+        max-width: 1200px;
+        grid-template-columns: 400px 400px 400px;
+        grid-row-gap: 45px;
+        text-align: center;
+        margin-left: auto;
+        margin-right: auto;
+        font-family: serif;
+    }
+
+
+    .item_text {
+        grid-column: 2 / span 2;
+        text-align: center !important;
+        font-size: 25px;
+    }
+</style>
+
+<div id="your-class" class="text-center bg-secondary   d-flex">
+
+    <div><img src="https://cf.shopee.vn/file/vn-50009109-fa79715264f5c973648d8096a8aa9773_xxhdpi" /></div>
+    <div><img src="https://cf.shopee.vn/file/vn-50009109-2ce8cba6b208608637db991786912592_xxhdpi" /></div>
+    <div><img src="https://cf.shopee.vn/file/vn-50009109-0841eb146759ede89b14f13c89a491d4_xxhdpi" /></div>
+    <div><img src="https://cf.shopee.vn/file/vn-50009109-ba32a2527f7f7fab9019c0eabee31417_xxhdpi" /></div>
+    <div><img src="https://cf.shopee.vn/file/vn-50009109-ac275abbb05bae537fdea6de24614b0c_xxhdpi" /></div>
+    <div><img src="https://cf.shopee.vn/file/vn-50009109-af1e7b9f234d444357b3b7d1fdc62b77_xxhdpi" /></div>
+    <div><img src="https://cf.shopee.vn/file/vn-50009109-17173ffc86173944b2d80daa324c1394_xxhdpi" /></div>
+    <div><img src="https://cf.shopee.vn/file/vn-50009109-93c162540aa021ce5f0de2442814ed8c_xxhdpi"></div>
+
+</div>
+
+
+<div class="Main_bodyPage">
+    <div>
+        <h1 class="best_Seller">SẢN PHẨM BÁN CHẠY NHẤT</h1>
+        <div class="item-Layout">
+            <div class="item-Div">
+                iPhone 14 Plus 128GB Chính hãng (VN/A) <br />
+                <img style="width:250px" src="https://didongviet.vn/_next/image?url=https%3A%2F%2Fcdn-v2.didongviet.vn%2Ffiles%2Fmedia%2Fcatalog%2Fproduct%2Fi%2Fp%2Fiphone-14-plus-128gb-didongviet.jpg&w=1920&q=75" />
+            </div>
+            <div class="item-Div">
+                Điện thoại Samsung Galaxy M14 5G <br />
+                <img style="width:250px" src="https://f9-zpcloud.zdn.vn/4293402428857943563/3a27eb6777cba695ffda.jpg" />
+            </div>
+            <div class="item-Div">
+                Kính cường lực Xiaomi Redmi Full Màn Hình 9D Note 10/Note 9/Note 8/Note 7/Pro/Mi 11 lite/10T/9T/9C/9A/9s/8A/9 SE cao cấp <br />
+                <img style="width:250px" src="https://f9-zpcloud.zdn.vn/2243606474467165221/6d8dd3506bfcbaa2e3ed.jpg" />
+            </div>
+            <div class="item-Div">
+                Xe máy Honda SH 350i <br />
+                <img style="width:250px" src="https://f10-zpcloud.zdn.vn/4327957511520744627/ea0c4f419fed4eb317fc.jpg" />
+            </div>
+        </div>
+    </div>
+
+
+    <h1 style="margin-top: 50px;margin-bottom: 20px;">Danh mục: </h1>
+    <div class="item-layout d-flex" style="max-height: 350px; margin-bottom: 75px">
+        <div class="item-Div" style="flex-basis:20%">
+            <a href="https://localhost:7213/SHOP/Shop?ProductType=Phone&SearchString=">
+                <img style="width:auto;height:150px" src="https://vtv1.mediacdn.vn/2019/10/10/photo-1-15706463929181755249740.jpg" />
+                <p>Điện Thoại</p>
+            </a>
+        </div>
+        <div class="item-Div" style="flex-basis:20%">
+            <a href="https://localhost:7213/SHOP/Shop?ProductType=Laptop&SearchString=">
+                <img style="width:auto;height:150px" src="https://cdn.tgdd.vn/hoi-dap/1280707/man-hinh-laptop-4k-uhd-la-gi-2.jpg" />
+                <p>Máy Tính & Laptop</p>
+            </a>
+        </div>
+        <div class="item-Div" style="flex-basis:20%">
+            <a href="https://localhost:7213/SHOP/Shop?ProductType=Earphone&SearchString=">
+                <img style="width:auto;height:150px" src="https://images.fpt.shop/unsafe/fit-in/214x214/filters:quality(90):fill(white)/fptshop.com.vn/Uploads/Originals/2023/5/4/638187947131190377_HAVIT-TW903-TRANG-AVT.jpg" />
+                <p>Tai nghe</p>
+            </a>
+        </div>
+        <div class="item-Div" style="flex-basis:20%">
+            <a href="https://localhost:7213/SHOP/Shop?ProductType=DoGiaDung&SearchString=">
+                <img style="width:auto;height:150px" src="https://cdn.tgdd.vn/2021/11/CookDish/cac-loai-do-gia-dung-hien-dai-cho-can-bep-nha-ban-them-tien-avt-1200x676.jpg" />
+                <p>Đồ Gia Dụng</p>
+            </a>
+        </div>
+        <div class="item-Div" style="flex-basis:20%">
+            <a href="https://localhost:7213/SHOP/Shop?ProductType=ThoiTrangNam&SearchString=">
+                <img style="width:auto;height:150px" src="https://toplist.vn/images/800px/yame-vinh-long-747230.jpg" />
+                <p>Thời Trang Nam</p>
+            </a>
+        </div>
+        <div class="item-Div" style="flex-basis:20%">
+            <a href="https://localhost:7213/SHOP/Shop?ProductType=ThoiTrangNam&SearchString=">
+                <img style="width:auto;height:150px" src="https://cdn.batdongsan.com.vi/gpictures/500x250/9185/MnxBRjFRaXBNVWJ6UGI2Qmt4bWF6eE5Bc2kwSmp1eTZENWFJR0hjU3I1V29SeQ.jpg" />
+                <p>Thời Trang Nữ</p>
+            </a>
+        </div>
+
+
+    </div>
+
+
+    <div>
+
+        <div class="item-LayoutText">
+
+            <div class="item-Div">
+                <img style="width:225px" src="https://yt3.googleusercontent.com/ytc/AGIKgqOGwUa0cjYdRXYzQJAcDPmZafYcUDdaDYR9Caomww=s900-c-k-c0x00ffffff-no-rj" />
+            </div>
+            <div class="item_text" style="color: orangered">
+                <p>
+                    Apple là thương hiệu không còn xa lạ với nhiều người,<br />
+                    nổi bật với dòng điện thoại thông minh là Iphone,<br />
+                    thế nhưng sẽ không nhiều người hiểu rõ hành trình<br />
+                    lịch sử của gã khổng lồ công nghệ này và bài viết <br />
+                    sẽ giúp các bạn hiểu rõ hơn về tập đoàn Apple.
+                </p>
+            </div>
+        </div>
+        @*    <div class="item-Div">
+        Lazada <br />
+        <img style="width:250px" src="https://f10-zpcloud.zdn.vn/3122271987006566828/dbb0f07ee3d1328f6bc0.jpg" />
+        </div>
+        <div class="item-Div">
+        Amazon <br />
+        <img style="width:250px" src="https://f10-zpcloud.zdn.vn/6466761020423308376/839a4fef6b40ba1ee351.jpg" />
+        </div>
+        </div>*@
+    </div>
+</div>

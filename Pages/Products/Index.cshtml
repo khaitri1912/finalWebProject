@@ -1,0 +1,155 @@
+﻿@page
+@model WebBanHang.Pages.Products.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "_Layout2";
+}
+
+<style>
+    .table {
+        width: 100%;
+        font-weight: bold;
+        border-collapse: collapse;
+        background-color: #FFFF99;
+    }
+
+    body {
+        background-image: url(https://haycafe.vn/wp-content/uploads/2022/07/background-vang-kim.jpg);
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+    }
+
+    th, td {
+        padding: 10px;
+        text-align: center;
+        vertical-align: middle;
+        border: solid 1px;
+        /* height: 100px;*/
+    }
+
+    th{
+        font-weight: bold;
+        font-size: 15px;
+        text-transform: uppercase;
+        font-family: 'Lobster', cursive;
+    }
+
+    td{
+        height: 150px;
+       
+    }
+
+    .cssbuttons-io-button {
+        display: flex;
+        align-items: center;
+        font-family: inherit;
+        font-weight: 600;
+        font-size: 16px;
+        padding: 0.7em 1.4em 0.7em 1.1em;
+        color: white;
+        background: #ad5389;
+        background: linear-gradient(0deg, rgba(20,167,62,1) 0%, rgba(102,247,113,1) 100%);
+        border: none;
+        box-shadow: 0 0.7em 1.5em -0.5em #14a73e98;
+        letter-spacing: 0.05em;
+        border-radius: 20em;
+        width: 100px
+    }
+
+        .cssbuttons-io-button svg {
+            margin-right: 6px;
+        }
+
+        .cssbuttons-io-button:hover {
+            box-shadow: 0 0.5em 1.5em -0.5em #14a73e98;
+        }
+
+        .cssbuttons-io-button:active {
+            box-shadow: 0 0.3em 1em -0.5em #14a73e98;
+        }
+
+    .text{
+        max-width: 125px !important;
+    }
+</style>
+
+<p>
+    @*<a asp-page="Create" >Create New</a>*@
+    <a asp-page="Create" class="cssbuttons-io-button">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"><path fill="none" d="M0 0h24v24H0z"></path><path fill="currentColor" d="M11 11V5h2v6h6v2h-6v6h-2v-6H5v-2z"></path></svg>
+        <span>Add</span>
+    </a>
+</p>
+
+<form>
+    <p>
+        <select asp-for="ProductType" asp-items="Model.Types">
+            <option value="">All</option>
+        </select>
+        Name: <input type="text" asp-for="SearchString" />
+        <input type="submit" value="Filter" />
+    </p>
+</form>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.SanPham[0].Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SanPham[0].Photo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SanPham[0].Type)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SanPham[0].Description)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SanPham[0].ReleaseDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SanPham[0].SoLuong)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SanPham[0].Price)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.SanPham) {
+        <tr>
+            <td class="text">
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td >
+                    <img style="width:auto;height:150px" src="@Html.DisplayFor(modelItem => item.Photo)">
+            </td>
+            <td class="text">
+                @Html.DisplayFor(modelItem => item.Type)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Description)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ReleaseDate)
+            </td>
+            <td class="text"> 
+                @Html.DisplayFor(modelItem => item.SoLuong)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Price)
+            </td>
+            <td>
+                    <a asp-page="./Edit" asp-route-id="@item.ID" class="cssbuttons-io-button1">Edit</a> |
+                    <a asp-page="./Details" asp-route-id="@item.ID" class="cssbuttons-io-button1">Details</a> |
+                    <a asp-page="./Delete" asp-route-id="@item.ID" class="cssbuttons-io-button1">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

@@ -1,0 +1,81 @@
+﻿@page
+@model WebBanHang.Pages.SHOP.SHOP.IndexModel
+@{
+}
+
+
+<style>
+    .Index_Layout {
+        /*display: flex;
+                flex-wrap:wrap;*/
+        display: grid;
+        grid-template-columns: 317px 317px 317px 317px;
+        gap: 10px;
+    }
+
+    .Index_item {
+        /*flex-basis:10%*/
+        border: 1px solid gray;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .Index_item a{
+        text-align: center;
+        font-weight: bold;
+            display: inline-block;
+    }
+
+    .mm {
+        margin-top: 5px;
+        margin-bottom: 5px;
+    }
+
+</style>
+
+<form>
+    <p>
+        <select asp-for="ProductType" asp-items="Model.Types">
+            <option value="">All</option>
+        </select>
+        Name: <input type="text" asp-for="SearchString" />
+        <input type="submit" value="Filter" />
+    </p>
+    <p>
+        <select asp-for="sortOrder">
+            <option value="">Sort by</option>
+            <option value="price_desc">Price (High to Low)</option>
+            <option value="price_asc">Price (Low to High)</option>
+        </select>
+        <input type="submit" value="Sort" />
+    </p>
+</form>
+
+
+<div class="Index_Layout">
+    @foreach (var item in Model.Product)
+    {
+        <div class="Index_item">
+            <a asp-page="./Details" asp-route-id="@item.ID">
+                @item.Name <br>
+                <img style="width:auto;height:150px" src="@Html.DisplayFor(modelItem => item.Photo)">
+            </a>
+            <div class="mm">
+                <button class="btn btn-outline-danger">
+                    <a asp-page="./Details" asp-route-id="@item.ID">
+                        Xem
+                    </a>
+                </button>
+                
+            </div>
+        </div>
+    }
+</div>
+
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

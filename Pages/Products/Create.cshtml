@@ -1,0 +1,65 @@
+﻿@page
+@model WebBanHang.Pages.Products.CreateModel
+
+@{
+    ViewData["Title"] = "Create";
+    Layout = "_Layout2";
+}
+
+<h1>Create</h1>
+
+<h4>SanPham</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="SanPham.Name" class="control-label"></label>
+                <input asp-for="SanPham.Name" class="form-control" />
+                <span asp-validation-for="SanPham.Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="SanPham.Photo" class="control-label"></label>
+                <input asp-for="SanPham.Photo" class="form-control" />
+                <span asp-validation-for="SanPham.Photo" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="SanPham.Type" class="control-label"></label>
+                <input asp-for="SanPham.Type" class="form-control" />
+                <span asp-validation-for="SanPham.Type" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="SanPham.Description" class="control-label"></label>
+                <input asp-for="SanPham.Description" class="form-control" />
+                <span asp-validation-for="SanPham.Description" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="SanPham.ReleaseDate" class="control-label"></label>
+                <input asp-for="SanPham.ReleaseDate" class="form-control" />
+                <span asp-validation-for="SanPham.ReleaseDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="SanPham.SoLuong" class="control-label"></label>
+                <input asp-for="SanPham.SoLuong" class="form-control" />
+                <span asp-validation-for="SanPham.SoLuong" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="SanPham.Price" class="control-label"></label>
+                <input asp-for="SanPham.Price" class="form-control" />
+                <span asp-validation-for="SanPham.Price" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

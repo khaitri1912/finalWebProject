@@ -1,0 +1,65 @@
+﻿@page
+@model WebBanHang.Pages.Products.DeleteModel
+
+@{
+    ViewData["Title"] = "Delete";
+    Layout = "_Layout2";
+}
+
+<h1>Delete</h1>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>SanPham</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.SanPham.Name)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.SanPham.Name)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.SanPham.Photo)
+        </dt>
+        <dd class="col-sm-10">
+            <img style="width:auto;height:150px" src="@Html.DisplayFor(model => model.SanPham.Photo)">
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.SanPham.Type)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.SanPham.Type)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.SanPham.Description)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.SanPham.Description)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.SanPham.ReleaseDate)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.SanPham.ReleaseDate)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.SanPham.SoLuong)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.SanPham.SoLuong)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.SanPham.Price)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.SanPham.Price)
+        </dd>
+    </dl>
+    
+    <form method="post">
+        <input type="hidden" asp-for="SanPham.ID" />
+        <input type="submit" value="Delete" class="btn btn-danger" /> |
+        <a asp-page="./Index">Back to List</a>
+    </form>
+</div>

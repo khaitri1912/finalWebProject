@@ -1,0 +1,112 @@
+﻿@page
+@model WebBanHang.Pages.Cart.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "_Layout3";
+}
+
+<style>
+    table {
+        width: 100%;
+        border-collapse: collapse;
+    }
+
+    th, td {
+        padding: 10px;
+        text-align: center;
+        vertical-align: middle;
+        border: solid 1px;
+    }
+</style>
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.GioHang[0].Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.GioHang[0].Photo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.GioHang[0].Type)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.GioHang[0].Description)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.GioHang[0].ReleaseDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.GioHang[0].SoLuong)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.GioHang[0].Price)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.GioHang[0].TotalPrice)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.GioHang) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                <img style="width:auto;height:150px" src="@Html.DisplayFor(modelItem => item.Photo)">
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Type)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Description)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ReleaseDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SoLuong)
+            </td>
+                <td>
+                    @string.Format("{0:#,##0}", item.Price)
+                    <text>VND</text>
+                </td>
+
+
+                <td>
+                    @string.Format("{0:#,##0}", item.TotalPrice)
+                    <text>VND</text>
+                </td>
+
+
+            
+            <td>
+                    <a asp-page="./Edit" asp-route-id="@item.ID" class="cssbuttons-io-button1">Edit</a> 
+                    <a asp-page="./Details" asp-route-id="@item.ID" class="cssbuttons-io-button1">Details</a> 
+                    <a asp-page="./Delete" asp-route-id="@item.ID" class="cssbuttons-io-button1">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+
+<form method="post" onsubmit="Alert123()">    
+    <button type="submit">
+        Thanh Toán
+    </button> 
+    <p id="resultPrice">
+        Total Price: @string.Format("{0:#,##0}", Model.TotalPrice)
+        <text>VND</text>
+    </p>
+</form>
+
+<script>
+    function Alert123(){
+        alert("Thanh toán thành công ! Đơn hàng của bạn sẽ được giao trong 3-5 ngày.")
+    }
+</script>

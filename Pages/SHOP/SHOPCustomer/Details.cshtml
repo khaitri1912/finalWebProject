@@ -1,0 +1,130 @@
+﻿@page
+@model WebBanHang.Pages.SHOP.SHOPCustomer.DetailsModel
+@{
+    Layout = "_Layout3";
+}
+
+<style>
+    dd {
+        margin-left: 100px;
+        font-weight: bold;
+        font-size: 20px;
+    }
+
+    dt {
+        color: blue;
+        font-size: 20px;
+    }
+
+    dl {
+        display: flex;
+    }
+
+        dl.row {
+            border: 1.5px solid;
+        }
+
+    .text-danger {
+        width: 100%;
+    }
+
+    .product_Data {
+        display: flex;
+    }
+
+
+    /*.end_Form{
+            margin-left: 5px;
+
+        }*/
+    .end_Form a {
+        text-decoration: none;
+    }
+
+
+
+    #Amount_Input {
+        width: 50px;
+    }
+
+    .item_Product {
+        margin-left: 500px;
+        width: 1000px;
+    }
+</style>
+
+
+<div class=" item_Product">
+    <div class="col-md-4">
+        <form method="post">
+            <div>
+
+                <dl class="row">
+
+
+                    <dd class="col-sm-5">
+                        <img style="width:auto;height:150px" src="@Html.DisplayFor(model => model.Product.Photo)">
+                    </dd>
+
+
+                    <dd class="col-sm-5" style="text-align:center; color: black; font-weight: bold; font-size: 18px;">
+                        @Html.DisplayFor(model => model.Product.Name)
+                    </dd>
+                    <hr />
+                    <div class="product_Data">
+                        <dt class="col-sm-2">
+                            @Html.DisplayNameFor(model => model.Product.Type)
+                        </dt>
+
+                        <dd class="col-sm-10 data_type">
+                            @Html.DisplayFor(model => model.Product.Type)
+                        </dd>
+                    </div>
+                    <hr />
+                    <div class="product_Data">
+                        <dt class="col-sm-2">
+                            @Html.DisplayNameFor(model => model.Product.Description)
+                        </dt>
+                        <dd class="col-sm-10 data_type">
+                            @Html.DisplayFor(model => model.Product.Description)
+                        </dd>
+                    </div>
+
+                    
+                    <hr />
+                    <div class="product_Data">
+                        <dt class="col-sm-2">
+                            @Html.DisplayNameFor(model => model.Product.ReleaseDate)
+                        </dt>
+                        <dd class="col-sm-10 data_type">
+                            @Html.DisplayFor(model => model.Product.ReleaseDate)
+                        </dd>
+                    </div>
+                    <hr />
+                    <div class="product_Data">
+                        <dt class="col-sm-2">
+                            @Html.DisplayNameFor(model => model.Product.Price)
+                        </dt>
+                        <dd class="col-sm-10 data_type">
+                            @string.Format("{0:#,##0}", Model.Product.Price)
+                            <text>VND</text>
+                        </dd>
+                    </div>
+
+                </dl>
+            </div>
+           
+            <div class="mt-2">
+                <a asp-page="./Index">Back to List</a>
+            </div>
+        </form>
+
+    </div>
+</div>
+
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
