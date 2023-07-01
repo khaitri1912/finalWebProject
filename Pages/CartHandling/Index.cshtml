@@ -94,10 +94,12 @@
                 @Html.DisplayFor(modelItem => item.SoLuong)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Price)
+                    @string.Format("{0:#,##0}", item.Price)
+                    <text>VND</text>
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.TotalPrice)
+                    @string.Format("{0:#,##0}", item.Price)
+                    <text>VND</text>
             </td>
             <td>
                     <a asp-page="./Edit" asp-route-id="@item.ID" class="cssbuttons-io-button1">Edit</a> |

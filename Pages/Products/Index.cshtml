@@ -142,7 +142,8 @@
                 @Html.DisplayFor(modelItem => item.SoLuong)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Price)
+               @String.Format("{0:#,##0}", item.Price)
+               <text>VNĐ</text>
             </td>
             <td>
                     <a asp-page="./Edit" asp-route-id="@item.ID" class="cssbuttons-io-button1">Edit</a> |
